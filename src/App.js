@@ -18,6 +18,10 @@ function App() {
     let index = pokemonIndex - 1;
     setPokemonIndex(index);
   }
+  const manualEntry = () => {
+    let manualInputNumber = Number(document.getElementById('manualInputNumber').value);
+    setPokemonIndex(manualInputNumber);
+  }
 
   useEffect(() => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonIndex}`)
@@ -58,7 +62,7 @@ function App() {
       {
         selectedPokemon.sprites == undefined ?
           <img src={"https://miro.medium.com/v2/resize:fit:340/1*Oy3w5Sf30aI8cAObDDHRCA.jpeg"} /> :
-          <img width="300px" src={selectedPokemon.sprites.front_default} />
+          <img id = "pokemonImg" width="300px" src={selectedPokemon.sprites.front_default} />
       }
       {
         pokemonDescription.flavor_text_entries[0].flavor_text == undefined ?
@@ -68,6 +72,8 @@ function App() {
       <div>
         <button onClick={decreaseClick}>Previous Page</button>
         <button onClick={increaseClick}>Next Page</button>
+        <input type="text" id="manualInputNumber" placeholder="No. #" maxLength="4"></input>
+        <button onClick={manualEntry}>Go</button>
       </div>
 
       <Cry url={url} />
