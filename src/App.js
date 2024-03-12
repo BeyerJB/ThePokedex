@@ -67,12 +67,12 @@ function App() {
       {
         pokemonDescription.flavor_text_entries[0].flavor_text == undefined ?
           <p>THIS POKEMON IS NOT DISCOVERED</p> :
-          <p>{pokemonDescription.flavor_text_entries[0].flavor_text}</p>
+          <p id="decriptionBox">{pokemonDescription.flavor_text_entries[0].flavor_text}</p>
       }
       <div>
-        <button onClick={decreaseClick}>Previous Page</button>
-        <button onClick={increaseClick}>Next Page</button>
-        <input type="text" id="manualInputNumber" placeholder="No. #" maxLength="4"></input>
+        <button id="downButton" onClick={decreaseClick}></button>
+        <button id="upButton" onClick={increaseClick}></button>
+        <input type="text" id="manualInputNumber" placeholder="No. #" maxLength="4" size="6"></input>
         <button onClick={manualEntry}>Go</button>
       </div>
 
